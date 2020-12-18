@@ -64,6 +64,33 @@
                   <a class="dropdown-item" href="#">Vase Arrangements</a>
                 </div>
               </li>
+              @if (Auth::user()->roleadmin==0)
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Transaction History</a>
+                  <a class="dropdown-item" href="#">My Cart</a>
+                  <a class="dropdown-item" href="#">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Login">Logout</a>   
+                </div>
+              </li>
+              @else
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Manager
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Add Flower</a>
+                  <a class="dropdown-item" href="#">Manage Categoris</a>
+                  <a class="dropdown-item" href="#">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Login">Logout</a>   
+                </div>
+              </li>                  
+            @endif
             <li class="nav-item active">
               <a class="nav-link" href="/Login">Login<span class="sr-only">(current)</span></a>
             </li>

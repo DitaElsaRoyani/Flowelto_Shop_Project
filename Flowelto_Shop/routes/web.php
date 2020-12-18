@@ -20,10 +20,14 @@ Route::get('/', function () {
 Route::get('/Login',function(){
     return view('Login_Flowelto');
 });
+Route::post('/Log','HomeController@Login');
+
+Route::get('/Logout','HomeController@Logout');
 
 Route::get('/Register',function(){
     return view('Register_Flowelto');
 });
+Route::post('/Regist','HomeController@Register');
 
 // Route::get('/Home',function(){
 //     return view('Home_Flowelto');
@@ -38,3 +42,8 @@ Route::get('/transactionhistori',function(){
 });
 
 Route::get('/Home','HomeController@homepage');
+
+Route::get('/changepassword',function(){
+    return view('change_password');
+});
+Route::post('/changepass','HomeController@changepassword')->name('change_password');

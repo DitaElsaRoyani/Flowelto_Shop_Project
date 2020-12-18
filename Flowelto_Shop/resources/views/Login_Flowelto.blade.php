@@ -8,7 +8,7 @@
 
     <script src="{{asset('jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('popper/popper.min.js')}}"></script>
-<link rel="stylesheet" href="{{asset("Bootstrap/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("Bootstrap/css/bootstrap.min.css")}}">
     <script src="{{ asset('Bootstrap/js/bootstrap.min.js')}}"
     ></script>
 
@@ -37,8 +37,9 @@
 </head>
 <body>
     {{-- navigation bar diatas login  --}}
+    
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #fd3a69">
-        <a class="navbar-brand" href="#">Flowelto Shop</a>
+        <a class="navbar-brand" href="/Home">Flowelto Shop</a>
         <div class="navigationbar">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -56,13 +57,44 @@
                   <a class="dropdown-item" href="#">Vase Arrangements</a>
                 </div>
               </li>
+             @if (Auth::check())   
+            @if (Auth::user()->roleadmin==0)
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Transaction History</a>
+                  <a class="dropdown-item" href="#">My Cart</a>
+                  <a class="dropdown-item" href="#">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Login">Logout</a>   
+                </div>
+              </li>
+              @else
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Manager
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Add Flower</a>
+                  <a class="dropdown-item" href="#">Manage Categoris</a>
+                  <a class="dropdown-item" href="#">Change Password</a>
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Logout">Logout</a>   
+                </div>
+              </li>                  
+            @endif
+    
+            @else                
             <li class="nav-item active">
               <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Register">Register</a>
-            </li>
-            <li class="nav-tanggal">
+            </li>           
+              @endif
+              <li class="nav-tanggal">
                 <a class="nav-link" href="#">Sat,16 Mei 2020</a>
               </li> 
           </ul>
@@ -74,14 +106,15 @@
 
     {{-- Page Login  --}}   
     <div class="login_email dropdown-menu d-block" style="margin-top: -600px; margin-left: 700px; background-color: ">
-        <form class="px-4 py-3">
+        <form class="px-4 py-3"  action="/Log" method="POST">
+          @csrf
           <div class="form-group">
             <label for="exampleDropdownFormEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+            <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
           </div>
           <div class="form-group">
             <label for="exampleDropdownFormPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+            <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -90,10 +123,10 @@
                 Remember me </label>
             </div>
           </div>
-          <button type="Loginbutton" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Forgot password?</a>
+        <a class="dropdown-item" href="#">forget password?</a>
     </div>  
 </body>
 </html>

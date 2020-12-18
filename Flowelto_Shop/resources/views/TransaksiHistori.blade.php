@@ -33,39 +33,7 @@
 </head>
 <body>
     /* {{-- navigation bar diatas  --}} */
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #fd3a69">
-        <a class="navbar-brand" href="#">Flowelto Shop</a>
-        <div class="navigationbar">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Categoris
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Bouquet (gift)</a>
-                  <a class="dropdown-item" href="#">Acrylic Flower</a>
-                  <a class="dropdown-item" href="#">Fleur Box</a>
-                  <a class="dropdown-item" href="#">Vase Arrangements</a>
-                </div>
-              </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/Login">Login<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Register">Register</a>
-            </li>
-            <li class="nav-tanggal">
-                <a class="nav-link" href="#">Sat,16 Mei 2020</a>
-              </li> 
-          </ul>
-        </div>
-      </div> 
-    </nav>
-
+    
 
     
 </body>

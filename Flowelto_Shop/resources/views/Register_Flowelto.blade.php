@@ -85,36 +85,47 @@
     <h1 class="registertxt">Register</h1>
 
     {{-- buat form register --}}
+    @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+              </div>
+          @endif
        <div class="RegForm"> 
-        <form class="px-5 py-2">
+
+        <form class="px-5 py-2" action="/Regist" method="POST" >
+          @csrf
             <div class="form-group col-md-6" >
                 <label for="exampleDropdownFormEmail1" class="col-form-label">Username</label>
-                <input type="Username" class="form-control" id="exampleDropdownFormEmail1" minlength="5" required>
+                <input name="username" type="Username" class="form-control" id="exampleDropdownFormEmail1" minlength="5" required>
             </div>
           <div class="form-group col-md-6">
             <label for="exampleDropdownFormEmail2">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail2" required>
+            <input name="email" type="email" class="form-control" id="exampleDropdownFormEmail2" required>
           </div>
           <div class="form-group col-md-6">
             <label  for="exampleDropdownFormPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" minlength="8" required>
+            <input name="password"type="password" class="form-control" id="exampleDropdownFormPassword1" minlength="8" required>
           </div>
           <div class="form-group col-md-6">
             <label for="exampleDropdownFormPassword2">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword2" required>
+            <input name="password_confirmation" type="password" class="form-control" id="exampleDropdownFormPassword2" required>
           </div>
           <fieldset class="form-group col-md-6">
             <div class="row">
               <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
               <div class="col-sm-10">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked >
+                  <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Male" checked >
                   <label class="form-check-label" for="gridRadios1">
                     Male
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Female">
                   <label class="form-check-label" for="gridRadios2">
                     Female
                   </label>
@@ -124,13 +135,13 @@
           </fieldset>
           <div class="form-group col-md-6">
             <label for="inputDateBirth">Date Birth</label>
-            <input type="text" class="form-control" id="inputDateBirth" placeholder="mm/dd/yyyy" required>
+            <input name="DOB" type="text" class="form-control" id="inputDateBirth" placeholder="mm/dd/yyyy" required>
           </div>
           <div class="form-group col-md-6">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" minlength="10" required>
+            <input name="address" type="text" class="form-control" id="inputAddress" minlength="10" required>
           </div>
-          <button type="Registbutton" class="btn btn-primary" style="margin-left: 20px">Register</button>
+          <button type="submit" class="btn btn-primary" style="margin-left: 20px">Register</button>
         </form>
         <div class="dropdown-divider"></div>
     </div> 

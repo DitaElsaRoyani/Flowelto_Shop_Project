@@ -22,6 +22,7 @@ class CreateCustomersTable extends Migration
             $table->string('Address');
             $table->string('Gender');
             $table->date('Date of Birth');
+            $table->string('roleadmin');
 
         });
     }

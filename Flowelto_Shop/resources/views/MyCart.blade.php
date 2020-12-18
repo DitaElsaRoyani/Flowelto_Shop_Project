@@ -35,6 +35,10 @@
         .tableCart{
           background-color: gray;
         }   
+        .img{
+          width: 200px;
+          max-height: 280px;
+        }
     </style>
 </head>
 <body>
